@@ -1,0 +1,29 @@
+@startuml
+title Usecase for Information system
+left to right direction
+
+actor User
+actor Developer
+
+
+rectangle Software{
+  
+  User -- (Read poetry)
+  User -- (Login)
+  User -- (Send messages)
+  User -- (Measure temperature)
+  User -- (Measure comfortable conditions)
+
+ Developer -- (Development)
+ Developer -- (Support)
+
+ (Support) ..> (Login) : <<include>>
+ (Measure temperature) ..> (Measure comfortable conditions) : <<extends>>
+ (Measure comfortable conditions) ..> (Login) : <<include>>
+ (Measure temperature) ..> (Login) : <<include>>
+ (Send messages) ..> (Login) : <<include>>
+ (Send messages) ..> (Give feedback) : <<extends>>
+
+}
+
+@enduml
