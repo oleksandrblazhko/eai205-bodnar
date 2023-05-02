@@ -1,0 +1,11 @@
+@startuml
+title Classes Diagram
+
+Class User
+Class Arduino
+Class Temperature
+
+User"1" -up-> "*"Arduino: check_temperature_u
+Arduino"1" -up-> "*"Temperature: check_temperature_m
+
+@enduml

@@ -1,0 +1,63 @@
+@startuml
+title Relation Schema
+hide circle
+entity "User" as us {
+  (PK)user_id
+  --
+  user_name
+  phone
+}
+
+entity "Developer" as dev {
+  (PK)dev_id
+  --
+  (FK)user_id
+}
+
+entity "Arduino" as module {
+  (PK)module_id
+  --
+  (FK)user_id
+}
+
+entity "Temperature" as temp {
+  (PK)calc_id
+  --
+  temperature
+  date_id
+  (FK)module_id
+}
+
+entity "Personal Library" as lib {
+  (PK)library_id
+  --
+  (FK)user_id
+  (FK)work_id
+  date_of_adding
+  note
+}
+
+entity "Work" as work {
+  (PK)work_id
+  --
+   work_name
+   author_name
+   short_description
+}
+
+entity "Post message" as post {
+  (PK)message_id
+  --
+   (FK)sender_id
+   (FK)receiver_id
+   text
+}
+
+us --- dev
+us --- module
+us --- post
+us --- lib
+lib --- work
+module --- temp
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+title Activity Diagram 
+
+start
+
+:User opens message screen; 
+:User chooses destination;
+
+if (Is it feedback?) then (yes)
+  :Send feedback;
+else (no)
+  :Send message;
+endif
+
+stop
+@enduml
